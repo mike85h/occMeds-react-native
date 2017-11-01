@@ -1,3 +1,18 @@
+## Getting Started:
+
+# To see app on iphone:
+1. clone respository on a macOS machine
+2. cd into directory and run '$ npm install'
+3. run '$ npm start'
+4. Install "Expo" application on iphone
+5. Connect to same wi-fi network as macOS machine
+6. Scan QR code that appears in terminal after running $ npm start.
+7. App will show up on iphone screen.
+
+
+
+
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
