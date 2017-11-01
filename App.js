@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, Button } from 'react-native'
 
 import t from 'tcomb-form-native'
 
@@ -13,13 +13,25 @@ const User = t.struct({
 })
 
 export default class App extends React.Component {
+  handleSubmit = () => {
+    const value = this._form.getValue()
+    console.log('value: ', value)
+  }
+  
   render() {
     return (
       <View style={styles.container}>
         <Image source={require('./assets/om_icon_white.png')} style={{height:50, width:50}}/>
         <Text>OccMeds</Text>
         <View>
-          <Form type={User}/>
+          <Form
+            ref = {c => this._form = c} 
+            type={User}
+          />
+          <Button
+            title={'Sign Up!'}
+            onPress={this.handleSubmit}
+          />
         </View>
         <Text style={styles.white}>OccMeds Mobile App</Text>
         <Text style={styles.white}>More Coming Soon!</Text>
