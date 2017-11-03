@@ -6,10 +6,9 @@ import t from 'tcomb-form-native'
 const Form = t.form.Form
 
 const User = t.struct({
-  email: t.String,
   username: t.String,
   password: t.String,
-  terms: t.Boolean
+  'Remember Me': t.Boolean
 })
 
 export default class App extends React.Component {
@@ -21,21 +20,27 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./assets/om_icon_white.png')} style={{height:50, width:50}}/>
-        <Text>OccMeds</Text>
-        <View>
+        <View style={styles.centeredHeading}>
+          <Image source={require('./assets/om_icon_white.png')} style={{height:125, width:125}}/>
+          <Text style={{fontSize: 24}}>OccMeds</Text>
+        </View>
+        <View style={styles.centeredForm}>
           <Form
             ref = {c => this._form = c} 
             type={User}
           />
-          <Button
-            title={'Sign Up!'}
-            onPress={this.handleSubmit}
-          />
         </View>
-        <Text style={styles.white}>OccMeds Mobile App</Text>
-        <Text style={styles.white}>More Coming Soon!</Text>
-        <Text style={styles.white}>email mharrington@stmarysnds for questions</Text>
+        <View style={styles.centeredSubmit}>
+            <Button 
+              title={'Sign In'}
+              onPress={this.handleSubmit}
+            />
+          </View>
+        <View style ={styles.centeredFooter}>
+          <Text style={styles.white}>OccMeds Mobile App</Text>
+          <Text style={styles.white}>More Coming Soon!</Text>
+          <Text style={styles.white}>{String.fromCharCode(169) + ' 2017 St. Mary\'s NDS, LLC'} </Text>
+        </View>
       </View>
     )
   }
@@ -45,10 +50,52 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(100,100,100)',
-    alignItems: 'center',
+    flexDirection: 'column',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    paddingTop: 50,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   white: {
     color: 'white',
+  },
+  form: {
+    flex: 1,
+    backgroundColor: 'white',
+    width: 200,
+  },
+  centeredHeading: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 50,
+  },
+  centeredForm: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    paddingLeft: 40,
+    paddingRight: 40,
+  },
+  centeredFooter: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  centeredSubmit: {
+    flex: .3,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: '#fff',
+    borderWidth: 0.5,
+    borderRadius: 4,
+    marginTop: 40,
+    marginLeft: 40,
+    marginRight: 40,
   },
 })
