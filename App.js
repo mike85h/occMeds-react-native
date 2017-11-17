@@ -1,6 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TextInput, Button } from 'react-native'
-
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  ScrollView, 
+  Image, 
+  TextInput, 
+  Button 
+} from 'react-native'
 import t from 'tcomb-form-native'
 
 const Form = t.form.Form
@@ -11,12 +18,20 @@ const User = t.struct({
   'Remember Me': t.Boolean
 })
 
+
+
 export default class App extends React.Component {
+  
   handleSubmit = () => {
     const value = this._form.getValue()
     console.log('value: ', value)
   }
-  
+
+  componentDidMount(){
+    return fetch('www.orthofitters.xyz/helloworld/app.js/users')
+      .then((response) => console.log(response))
+  }
+
   render() {
     return (
       <View style={styles.container}>
