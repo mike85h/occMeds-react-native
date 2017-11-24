@@ -7,7 +7,7 @@
          return(
              <View style={styles.container}>
                 <TextInput
-                    returnKeyType="Login"
+                    returnKeyType='done'
                     placeholder="Username" 
                     placeholderTextColor='rgba(255,255,255,0.9)'
                     style={styles.input}>
