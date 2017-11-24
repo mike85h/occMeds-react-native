@@ -1,5 +1,6 @@
  import React, { Component } from 'react';
  import { StyleSheet, View, TextInput, Text, TouchableOpacity } from 'react-native';
+ import Footer from '../Footer/Footer';
 
  export default class LoginForm extends Component {
      render() {
@@ -8,18 +9,19 @@
                 <TextInput
                     placeholder="Username" 
                     placeholderTextColor='rgba(255,255,255,0.9)'
-                    style = {styles.input}>
+                    style={styles.input}>
                 </TextInput>
-                <TextInput
+                {/* <TextInput
                     placeholderTextColor='rgba(255,255,255,0.9)'
                     placeholder="Password"
-                    style = {styles.input}>
-                </TextInput>
-                <TouchableOpacity>
-                    <Text>
+                    style={styles.input}>
+                </TextInput> */}
+                <TouchableOpacity style={styles.buttonContainer}>
+                    <Text style={styles.buttonText}>
                         Login
                     </Text>
                 </TouchableOpacity>
+                <Footer />
              </View>
          )
      }
@@ -27,11 +29,22 @@
 
  const styles = StyleSheet.create({
     container: {
-        padding: 20
+        padding: 20,
     },
     input:{
-        height: 40,
+        height: 50,
         backgroundColor: 'rgba(255,255,255, 0.7)',
-        marginBottom: 20
-     }
+        marginBottom: 20,
+        marginTop: -250
+    },
+    buttonContainer: {
+        backgroundColor: 'rgba(175,175,175, 0.8)',
+        paddingVertical: 15,
+        height: 60,
+    },
+    buttonText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 20,
+    }
  });
