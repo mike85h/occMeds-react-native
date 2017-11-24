@@ -8,9 +8,11 @@ import {
   AppRegistry, 
   StyleSheet, 
   Text, 
-  View
+  View,
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import Login from './src/components/Login/Login';
+
 
 export default class App extends React.Component {  
   render() {
