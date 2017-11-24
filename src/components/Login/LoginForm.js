@@ -35,12 +35,13 @@
         height: 50,
         backgroundColor: 'rgba(255,255,255, 0.7)',
         marginBottom: 20,
-        marginTop: -250
+        bottom: 20
     },
     buttonContainer: {
         backgroundColor: 'rgba(175,175,175, 0.8)',
         paddingVertical: 15,
-        height: 60,
+        height: 50,
+        bottom: 20,
     },
     buttonText: {
         color: '#fff',
