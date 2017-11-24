@@ -1,16 +1,25 @@
  import React, { Component } from 'react';
- import { StyleSheet, View, TextInput, Text } from 'react-native';
+ import { StyleSheet, View, TextInput, Text, TouchableOpacity } from 'react-native';
 
  export default class LoginForm extends Component {
      render() {
          return(
              <View style={styles.container}>
                 <TextInput
+                    placeholder="Username" 
+                    placeholderTextColor='rgba(255,255,255,0.9)'
                     style = {styles.input}>
                 </TextInput>
                 <TextInput
+                    placeholderTextColor='rgba(255,255,255,0.9)'
+                    placeholder="Password"
                     style = {styles.input}>
                 </TextInput>
+                <TouchableOpacity>
+                    <Text>
+                        Login
+                    </Text>
+                </TouchableOpacity>
              </View>
          )
      }
