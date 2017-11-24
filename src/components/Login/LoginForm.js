@@ -7,15 +7,11 @@
          return(
              <View style={styles.container}>
                 <TextInput
+                    returnKeyType="Login"
                     placeholder="Username" 
                     placeholderTextColor='rgba(255,255,255,0.9)'
                     style={styles.input}>
                 </TextInput>
-                {/* <TextInput
-                    placeholderTextColor='rgba(255,255,255,0.9)'
-                    placeholder="Password"
-                    style={styles.input}>
-                </TextInput> */}
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>
                         Login
