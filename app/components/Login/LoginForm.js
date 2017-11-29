@@ -8,7 +8,11 @@
         const payload = {
             username: this.username
         }
-        console.log(payload)
+        // if(payload.username = "Mike") {
+        //     render() {
+        //             <Text>Logged In!</Text>   
+        //     }
+        // }
     } 
     
     render() {
@@ -30,6 +34,7 @@
                         Login
                     </Text>
                 </TouchableOpacity>
+                <Text style={styles.signUpText}>Dont have an account yet?</Text><Text style={styles.signUpClickableText}>Sign Up</Text>
                 <Footer />
              </View>
          )
@@ -44,17 +49,25 @@
         height: 50,
         backgroundColor: 'rgba(255,255,255, 0.7)',
         marginBottom: 20,
-        bottom: 45
+        bottom: 45,
+        borderRadius: 25
     },
     buttonContainer: {
         backgroundColor: 'rgba(175,175,175, 0.8)',
         paddingVertical: 15,
         height: 50,
         bottom: 55,
+        borderRadius: 25
     },
     buttonText: {
         color: '#fff',
         textAlign: 'center',
         fontSize: 20,
+    },
+    signUpText: {
+        color: '#fff'
+    },
+    signUpClickableText: {
+        color: 'blue'
     }
  });

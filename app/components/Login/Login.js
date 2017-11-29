@@ -2,18 +2,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, KeyboardAvoidingView } from 'react-native';
 import LoginForm from './LoginForm';
+import Logo from '../Logo/Logo';
 
 export default class Login extends Component {
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>
-                <View style={styles.logoContainer}>
-                    <Image 
-                        style = {styles.logo}
-                        source = {require('../../../assets/om_icon_white.png')}>
-                    </Image>
-                    <Text style={styles.title}>occMeds</Text>
-                </View>
+                <Logo />
                 <View style={styles.formContainer}>
                     <LoginForm />
                 </View>
@@ -27,23 +22,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'rgb(100,100,100)'
     },
-    logoContainer: {
-        flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     formContainer: {
 
-    },
-    logo: {
-        width: 100,
-        height: 100,
-    },
-    title: {
-        color: '#fff',
-        marginTop: 10,
-        fontSize: 30,
-        textAlign: 'center',
-        opacity: 0.9
     }
 });
