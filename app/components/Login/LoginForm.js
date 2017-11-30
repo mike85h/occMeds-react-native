@@ -32,9 +32,6 @@
     render() {
          return(
              <View style={styles.container}>
-                <StatusBar 
-                    //barStyle='light-content'
-                />
                 <TextInput
                     onChangeText={(text) => this.username = text}
                     returnKeyType='done'
@@ -49,7 +46,8 @@
                     </Text>
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
-                    <Text style={styles.signUpText}>Dont have an account yet?</Text><Text style={styles.signUpClickableText}>Sign Up</Text>
+                    <Text style={styles.signUpText}>Dont have an account yet?</Text>
+                    <Text style={styles.signUpButton}>Sign Up</Text>
                 </View>
                 
                 <Footer />
@@ -66,15 +64,15 @@
         height: 50,
         backgroundColor: 'rgba(255,255,255, 0.7)',
         marginBottom: 20,
-        bottom: 45,
+        bottom: 110,
         borderRadius: 25
     },
     buttonContainer: {
         backgroundColor: 'rgba(175,175,175, 0.8)',
         paddingVertical: 15,
         height: 50,
-        bottom: 55,
-        borderRadius: 25
+        bottom: 115,
+        borderRadius: 25,
     },
     buttonText: {
         color: '#fff',
@@ -83,13 +81,19 @@
     },
     signUpContainer: {
         flex: 1,
-        alignContent: 'center',
-        alignItems: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        bottom: 90
     },
     signUpText: {
         color: '#fff'
     },
     signUpClickableText: {
         color: 'blue'
+    },
+    signUpButton: {
+        color: '#42c5f4',
+        fontWeight: '900'
     }
  });

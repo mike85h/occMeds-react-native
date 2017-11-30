@@ -25,14 +25,17 @@ const styles = StyleSheet.create({
 
     },
     logo: {
-        width: 100,
-        height: 100,
+        width: 120,
+        height: 120,
+        bottom: 30
     },
     title: {
         color: '#fff',
         marginTop: 10,
         fontSize: 30,
         textAlign: 'center',
-        opacity: 0.9
+        opacity: 0.9,
+        fontWeight: '600',
+        bottom: 30
     }
 });

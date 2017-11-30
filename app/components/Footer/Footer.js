@@ -20,7 +20,7 @@ export default class Footer extends Component {
 
 const styles = StyleSheet.create({
     footerContainer: {
-        backgroundColor: 'rgba(120,120,120,0.7)',
+        backgroundColor: 'rgb(100,100,100)',
         position: 'absolute',
         height: 20,
         bottom: 0,
