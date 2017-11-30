@@ -5,6 +5,11 @@ import LoginForm from './LoginForm';
 import Logo from '../Logo/Logo';
 
 export default class Login extends Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+    
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>

@@ -4,13 +4,18 @@
  import { StackNavigator } from 'react-navigation'; 
 
  export default class LoginForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     _loginCall = () => {
         const payload = {
             username: this.username
         }
         if(payload.username == "Mike") {
             console.log(payload.username);
-            
+
         }else{
             Alert.alert(
                 "Wrong Username",
