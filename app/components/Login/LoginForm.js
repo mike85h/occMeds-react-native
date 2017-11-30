@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
- import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar } from 'react-native';
+ import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
  import Footer from '../Footer/Footer';
  import { StackNavigator } from 'react-navigation'; 
 
@@ -8,11 +8,20 @@
         const payload = {
             username: this.username
         }
-        // if(payload.username = "Mike") {
-        //     render() {
-        //             <Text>Logged In!</Text>   
-        //     }
-        // }
+        if(payload.username == "Mike") {
+            console.log(payload.username);
+            
+        }else{
+            Alert.alert(
+                "Wrong Username",
+                "What to do?",
+                [
+                    {text: 'continue?', oPress: () => console.log('pressed continue')}
+                ],
+                { cancelable: true }
+            );
+        }
+
     } 
     
     render() {
@@ -34,7 +43,10 @@
                         Login
                     </Text>
                 </TouchableOpacity>
-                <Text style={styles.signUpText}>Dont have an account yet?</Text><Text style={styles.signUpClickableText}>Sign Up</Text>
+                <View style={styles.signUpContainer}>
+                    <Text style={styles.signUpText}>Dont have an account yet?</Text><Text style={styles.signUpClickableText}>Sign Up</Text>
+                </View>
+                
                 <Footer />
              </View>
          )
@@ -63,6 +75,11 @@
         color: '#fff',
         textAlign: 'center',
         fontSize: 20,
+    },
+    signUpContainer: {
+        flex: 1,
+        alignContent: 'center',
+        alignItems: 'center'
     },
     signUpText: {
         color: '#fff'
