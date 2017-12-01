@@ -51,7 +51,7 @@ export default class SignUpForm extends Component {
                </TextInput>
                <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall}>
                    <Text style={styles.buttonText}>
-                       Continue
+                       Sign Up
                    </Text>
                </TouchableOpacity>
                <View style={styles.signUpContainer}>
