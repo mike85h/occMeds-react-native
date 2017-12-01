@@ -1,7 +1,9 @@
  import React, { Component } from 'react';
  import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
  import Footer from './Footer';
- import { StackNavigator } from 'react-navigation'; 
+ 
+ import { Actions } from 'react-native-router-flux'
+
 
  export default class LoginForm extends Component {
     constructor(props) {
@@ -29,6 +31,14 @@
         }
 
     } 
+
+    signUp(){
+        Actions.signUp()
+    }
+
+    enterCode() {
+        Actions.enterCode()
+    }
     
     render() {
          return(
@@ -41,14 +51,16 @@
                     style={styles.input}
                     keyboardType='email-address'>
                 </TextInput>
-                <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall, this.enterCode}>
                     <Text style={styles.buttonText}>
                         Continue
                     </Text>
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                     <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                    <Text style={styles.signUpButton}>Sign Up</Text>
+                    <TouchableOpacity onPress={this.signUp}> 
+                        <Text style={styles.signUpButton}>Sign Up</Text>
+                    </TouchableOpacity>
                 </View>
                 
                 <Footer />

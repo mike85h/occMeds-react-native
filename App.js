@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry, 
-  StyleSheet, 
-  Text, 
+import { 
+  StyleSheet,  
   View,
-  Button
+  Button,
+  StatusBar
 } 
 from 'react-native';
 
-import Login from './app/pages/Login'
-import SignUp from './app/pages/SignUp'
-import EnterCode from './app/pages/EnterCode'
+import Routes from './app/Routes'
 
 export default class App extends React.Component {  
   render() {
-    return <EnterCode />
-    //return <SignUp />
-    //return <Login />;
+    return(
+      <View style={styles.container}>
+      <StatusBar
+        backgroundColor='rgba(175,175,175, 0.8)'
+        barStyle='light-content'
+      />
+      <Routes />
+    </View>
+    )
+    
   }
 }
 

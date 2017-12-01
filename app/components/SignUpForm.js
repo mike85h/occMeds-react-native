@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
 import Footer from './Footer';
-import { StackNavigator } from 'react-navigation'; 
+
+import { Actions } from 'react-native-router-flux'
 
 export default class SignUpForm extends Component {
    constructor(props) {
@@ -29,6 +30,10 @@ export default class SignUpForm extends Component {
        }
 
    } 
+
+   login() {
+       Actions.login()
+   }
    
    render() {
         return(
@@ -56,7 +61,9 @@ export default class SignUpForm extends Component {
                </TouchableOpacity>
                <View style={styles.signUpContainer}>
                    <Text style={styles.signUpText}>Already have an account?</Text>
+                   <TouchableOpacity onPress={this.login}>
                    <Text style={styles.signUpButton}>Sign In</Text>
+                   </TouchableOpacity>
                </View>
                
                <Footer />
