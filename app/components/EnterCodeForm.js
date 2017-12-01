@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
 import Footer from './Footer';
-import { StackNavigator } from 'react-navigation'; 
+
+import { Actions } from 'react-native-router-flux'
 
 export default class SignUpForm extends Component {
    constructor(props) {
@@ -19,16 +20,21 @@ export default class SignUpForm extends Component {
 
        }else{
            Alert.alert(
-               "Wrong Username",
-               "What to do?",
+               "Wrong Code",
+               "What would you like to do?",
                [
-                   {text: 'continue?', oPress: () => {}}
+                   {text: 'continue?', oPress: () => {}},
+                   {text: 'go back?', onPress: () => {}}
                ],
                { cancelable: true }
            );
        }
 
    } 
+
+   signUp(){
+       Actions.signUp()
+   }
    
    render() {
         return(
@@ -70,7 +76,9 @@ export default class SignUpForm extends Component {
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                    <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                   <Text style={styles.signUpButton}>Sign Up!</Text>
+                   <TouchableOpacity onPress={this.signUp}>
+                    <Text style={styles.signUpButton}>Sign Up!</Text>
+                   </TouchableOpacity>
                 </View>
                 <Footer />
             </View>
