@@ -5,40 +5,10 @@ import {
   Text, 
   View,
   Button
-} from 'react-native';
-// import { StackNavigator } from 'react-navigation';
-import Login from './app/components/Login/Login';
+} 
+from 'react-native';
 
-// class LoginScreen extends React.Component {
-//   static navigationOptions = {
-//     title: 'Login'
-//   };
-//   render() {
-//     const { navigate } = this.props.navigation;
-//     return (
-//         <Login />
-//     ) 
-//   }
-// }
-
-// class HomeScreen extends React.Component {
-//   static navigationOptions = {
-//     title: 'Logged In'
-//   };
-//   render() {
-//     return (
-//       <View>
-//         <Text>Hello You Are Logged IN!</Text>
-//       </View>
-//     );
-//   }
-// }
-
-// export const OccMeds = StackNavigator({
-//   Login: { screen: LoginScreen },
-//   Home: { screen: HomeScreen }
-// });
-
+import Login from './app/pages/Login';
 
 export default class App extends React.Component {  
   render() {

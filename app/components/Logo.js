@@ -7,7 +7,7 @@ export default class Login extends Component {
                 <View style={styles.logoContainer}>
                     <Image 
                         style = {styles.logo}
-                        source = {require('../../../assets/om_icon_white.png')}>
+                        source = {require('../../assets/om_icon_white.png')}>
                     </Image>
                     <Text style={styles.title}>occMeds</Text>
                 </View>     

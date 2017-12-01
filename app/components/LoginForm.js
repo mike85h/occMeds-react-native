@@ -1,6 +1,6 @@
  import React, { Component } from 'react';
  import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
- import Footer from '../Footer/Footer';
+ import Footer from './Footer';
  import { StackNavigator } from 'react-navigation'; 
 
  export default class LoginForm extends Component {
@@ -15,13 +15,14 @@
         }
         if(payload.username == "Mike") {
             console.log(payload.username);
+            Alert.alert()
 
         }else{
             Alert.alert(
                 "Wrong Username",
                 "What to do?",
                 [
-                    {text: 'continue?', oPress: () => console.log('pressed continue')}
+                    {text: 'continue?', oPress: () => {}}
                 ],
                 { cancelable: true }
             );
@@ -65,7 +66,8 @@
         backgroundColor: 'rgba(255,255,255, 0.7)',
         marginBottom: 20,
         bottom: 110,
-        borderRadius: 25
+        borderRadius: 25,
+        paddingHorizontal: 20
     },
     buttonContainer: {
         backgroundColor: 'rgba(175,175,175, 0.8)',
