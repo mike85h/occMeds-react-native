@@ -8,11 +8,15 @@ import {
 } 
 from 'react-native';
 
-import Login from './app/pages/Login';
+import Login from './app/pages/Login'
+import SignUp from './app/pages/SignUp'
+import EnterCode from './app/pages/EnterCode'
 
 export default class App extends React.Component {  
   render() {
-    return <Login />;
+    return <EnterCode />
+    //return <SignUp />
+    //return <Login />;
   }
 }
 

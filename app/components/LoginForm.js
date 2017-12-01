@@ -43,7 +43,7 @@
                 </TextInput>
                 <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall}>
                     <Text style={styles.buttonText}>
-                        Login
+                        Continue
                     </Text>
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
