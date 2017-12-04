@@ -11,26 +11,30 @@
         this.state = {};
     }
 
+
     _loginCall = () => {
-        const payload = {
-            username: this.username
-        }
-        if(payload.username == "Mike") {
-            console.log(payload.username);
-            Alert.alert()
+      
+       const payload = {
+           username: this.username
+       }
+       if(payload.username == "Mike") {
+           console.log(payload.username);
+           Alert.alert()
 
-        }else{
-            Alert.alert(
-                "Wrong Username",
-                "What to do?",
-                [
-                    {text: 'continue?', oPress: () => {}}
-                ],
-                { cancelable: true }
-            );
-        }
+       }else{
+           Alert.alert(
+               "Wrong Code",
+               "What would you like to do?",
+               [
+                   {text: 'continue?', oPress: () => {}},
+                   {text: 'go back?', onPress: () => {}}
+               ],
+               { cancelable: true }
+           );
+       }
+    }
 
-    } 
+
 
     signUp(){
         Actions.signUp()
@@ -62,7 +66,6 @@
                         <Text style={styles.signUpButton}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
-                
                 <Footer />
              </View>
          )

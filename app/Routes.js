@@ -4,6 +4,7 @@ import { Router, Stack, Scene } from 'react-native-router-flux'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import EnterCode from './pages/EnterCode'
+import Home from './pages/Home'
 
 export default class Routes extends Component {
     render () {
@@ -13,6 +14,7 @@ export default class Routes extends Component {
                     <Scene key='login' component={Login} title='Login' initial={true}/>
                     <Scene key='signUp' component={SignUp} title='Sign Up'/>
                     <Scene key='enterCode' component={EnterCode} title='Enter Code'/>
+                    <Scene key='home' component={Home} title='Home'/>
                 </Stack>
             </Router>
         )

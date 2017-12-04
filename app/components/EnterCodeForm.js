@@ -11,24 +11,28 @@ export default class SignUpForm extends Component {
    }
 
    _loginCall = () => {
-       const payload = {
-           username: this.username
-       }
-       if(payload.username == "Mike") {
-           console.log(payload.username);
-           Alert.alert()
+        Actions.home()
+    //HOW TO USE DATA FROM FORM TO SEND AS PAYLOAD:
+    //------------------------------------------------------------
+    //    const payload = {
+    //        username: this.username
+    //    }
+    //    if(payload.username == "Mike") {
+    //        console.log(payload.username);
+    //        Alert.alert()
 
-       }else{
-           Alert.alert(
-               "Wrong Code",
-               "What would you like to do?",
-               [
-                   {text: 'continue?', oPress: () => {}},
-                   {text: 'go back?', onPress: () => {}}
-               ],
-               { cancelable: true }
-           );
-       }
+    //    }else{
+    //        Alert.alert(
+    //            "Wrong Code",
+    //            "What would you like to do?",
+    //            [
+    //                {text: 'continue?', oPress: () => {}},
+    //                {text: 'go back?', onPress: () => {}}
+    //            ],
+    //            { cancelable: true }
+    //        );
+    //    }
+    //------------------------------------------------------------
 
    } 
 
@@ -76,8 +80,8 @@ export default class SignUpForm extends Component {
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                    <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                   <TouchableOpacity onPress={this.signUp}>
-                    <Text style={styles.signUpButton}>Sign Up!</Text>
+                   <TouchableOpacity style={styles.touchableSignUp} onPress={this.signUp}>
+                        <Text style={styles.signUpButton}>Sign Up!</Text>
                    </TouchableOpacity>
                 </View>
                 <Footer />
@@ -124,16 +128,16 @@ const styles = StyleSheet.create({
        justifyContent: 'center',
        alignItems: 'center',
        flexDirection: 'row',
-       bottom: 90
+       bottom: 90,
    },
    signUpText: {
-       color: '#fff'
-   },
-   signUpClickableText: {
-       color: 'blue'
+       color: '#fff',
    },
    signUpButton: {
        color: '#42c5f4',
        fontWeight: '900'
+   },
+   touchableSignUp: {
+       alignItems: 'center'
    }
 });
