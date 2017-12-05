@@ -133,15 +133,17 @@ const styles = StyleSheet.create({
        alignItems: 'center',
        flexDirection: 'row',
        bottom: 90,
+       left: 140
    },
    signUpText: {
        color: '#fff',
+       alignItems: 'center'
    },
    signUpButton: {
        color: '#42c5f4',
        fontWeight: '900'
    },
    touchableSignUp: {
-       alignItems: 'center'
+      
    }
 });

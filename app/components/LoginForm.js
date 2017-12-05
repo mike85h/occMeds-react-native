@@ -101,10 +101,12 @@
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        bottom: 90
+        bottom: 90,
+        left: 140
     },
     signUpText: {
-        color: '#fff'
+        color: '#fff',
+        alignItems: 'center'
     },
     signUpClickableText: {
         color: 'blue'

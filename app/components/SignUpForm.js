@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
        justifyContent: 'center',
        alignItems: 'center',
        flexDirection: 'row',
-       bottom: 90
+       bottom: 90,
+       left: 140
    },
    signUpText: {
        color: '#fff'
