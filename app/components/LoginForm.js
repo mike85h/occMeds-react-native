@@ -1,6 +1,6 @@
- import React, { Component } from 'react';
- import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
- import Footer from './Footer';
+ import React, { Component } from 'react'
+ import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native'
+ import Footer from './Footer'
  
  import { Actions } from 'react-native-router-flux'
 
@@ -8,41 +8,22 @@
  export default class LoginForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            username: '',
+            passcode: ''
+        };
     }
 
-
-    _loginCall = () => {
-      
+    checkUsername(){
        const payload = {
            username: this.username
-       }
-       if(payload.username == "Mike") {
-           console.log(payload.username);
-           Alert.alert()
-
-       }else{
-           Alert.alert(
-               "Wrong Code",
-               "What would you like to do?",
-               [
-                   {text: 'continue?', oPress: () => {}},
-                   {text: 'go back?', onPress: () => {}}
-               ],
-               { cancelable: true }
-           );
-       }
-    }
-
-
+       };
+       Actions.enterCode({username: this.username});
+    };
 
     signUp(){
-        Actions.signUp()
-    }
-
-    enterCode() {
-        Actions.enterCode()
-    }
+        Actions.signUp();
+    };
     
     render() {
          return(
@@ -55,7 +36,7 @@
                     style={styles.input}
                     keyboardType='email-address'>
                 </TextInput>
-                <TouchableOpacity style={styles.buttonContainer} onPress={this.enterCode}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={this.checkUsername}>
                     <Text style={styles.buttonText}>
                         Continue
                     </Text>

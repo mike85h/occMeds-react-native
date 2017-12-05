@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
-import Footer from './Footer';
+import React, { Component } from 'react'
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native'
+import Footer from './Footer'
 
 import { Actions } from 'react-native-router-flux'
 
@@ -13,10 +13,10 @@ export default class SignUpForm extends Component {
    _loginCall = () => {
        const payload = {
            username: this.username
-       }
+       };
        if(payload.username == "Mike") {
            console.log(payload.username);
-           Alert.alert()
+           Alert.alert();
 
        }else{
            Alert.alert(
@@ -32,7 +32,7 @@ export default class SignUpForm extends Component {
    } 
 
    login() {
-       Actions.login()
+       Actions.login();
    }
    
    render() {

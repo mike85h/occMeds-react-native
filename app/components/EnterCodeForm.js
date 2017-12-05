@@ -1,60 +1,41 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native';
-import Footer from './Footer';
+import React, { Component } from 'react'
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native'
+import Footer from './Footer'
 
 import { Actions } from 'react-native-router-flux'
 
 export default class SignUpForm extends Component {
-   constructor(props) {
+   
+    constructor(props) {
        super(props);
        this.state = {};
    }
 
-   _loginCall = () => {
-        Actions.home()
-    //HOW TO USE DATA FROM FORM TO SEND AS PAYLOAD:
-    //------------------------------------------------------------
-    //    const payload = {
-    //        username: this.username
-    //    }
-    //    if(payload.username == "Mike") {
-    //        console.log(payload.username);
-    //        Alert.alert()
-
-    //    }else{
-    //        Alert.alert(
-    //            "Wrong Code",
-    //            "What would you like to do?",
-    //            [
-    //                {text: 'continue?', oPress: () => {}},
-    //                {text: 'go back?', onPress: () => {}}
-    //            ],
-    //            { cancelable: true }
-    //        );
-    //    }
-    //------------------------------------------------------------
-
-   } 
+   login(username){
+        console.log(username);
+        Actions.home();
+   }
 
    signUp(){
-       Actions.signUp()
+       Actions.signUp();
    }
-   
+
    render() {
         return(
             <View style={styles.container}>
                 <View style={styles.codeContainer}>
                     <TextInput
-                        onChangeText={(text) => this.username = text}
+                        onChangeText={(num) => this.code1 = num}
                         onChange={ (input) => this.box2.focus() }
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
                         keyboardType='numeric'
+                        ref={ (input) => this.box1 = input }
                     >
                     </TextInput>
                     <TextInput
-                        onChangeText={(text) => this.username = text}
+                        onChangeText={(num) => this.code2 = num}
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
@@ -64,7 +45,7 @@ export default class SignUpForm extends Component {
                     >
                     </TextInput>
                     <TextInput
-                        onChangeText={(text) => this.username = text}
+                        onChangeText={(num) => this.code3 = num}
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
@@ -74,7 +55,7 @@ export default class SignUpForm extends Component {
                     >
                     </TextInput>
                     <TextInput
-                        onChangeText={(text) => this.username = text}
+                        onChangeText={(num) => this.code4 = num}
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
@@ -84,7 +65,7 @@ export default class SignUpForm extends Component {
                     >
                     </TextInput>
                 </View>
-                <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => {this.login(this.props.username)}}>
                    <Text style={styles.buttonText}>
                        Login
                    </Text>
