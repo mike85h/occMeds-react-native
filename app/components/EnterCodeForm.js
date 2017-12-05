@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native';
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native';
 import Footer from './Footer';
 
 import { Actions } from 'react-native-router-flux'
@@ -46,6 +46,7 @@ export default class SignUpForm extends Component {
                 <View style={styles.codeContainer}>
                     <TextInput
                         onChangeText={(text) => this.username = text}
+                        onChange={ (input) => this.box2.focus() }
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
@@ -58,6 +59,8 @@ export default class SignUpForm extends Component {
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
                         keyboardType='numeric'
+                        ref={ (input) => this.box2 = input }
+                        onChange={ (input) => this.box3.focus() }
                     >
                     </TextInput>
                     <TextInput
@@ -66,6 +69,8 @@ export default class SignUpForm extends Component {
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
                         keyboardType='numeric'
+                        ref={ (input) => this.box3 = input }
+                        onChange={ (input) => this.box4.focus() }
                     >
                     </TextInput>
                     <TextInput
@@ -74,6 +79,8 @@ export default class SignUpForm extends Component {
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
                         keyboardType='numeric'
+                        ref={ (input) => this.box4 = input}
+                        onChange={ Keyboard.dismiss }
                     >
                     </TextInput>
                 </View>

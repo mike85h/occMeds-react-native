@@ -39,20 +39,32 @@ export default class SignUpForm extends Component {
         return(
             <View style={styles.container}>
                <TextInput
-                   onChangeText={(text) => this.username = text}
-                   returnKeyType='done'
+                   onChangeText={(text) => this.email = text}
+                   returnKeyType='next'
+                   placeholder="Email Address" 
+                   placeholderTextColor='rgba(255,255,255,0.9)'
+                   style={styles.input}
+                   keyboardType='email-address'
+                   onSubmitEditing={ () => this.username.focus() }>
+               </TextInput>  
+               <TextInput
+                   onChangeText={ (text) => this.username = text }
+                   returnKeyType='next'
                    placeholder="Username" 
                    placeholderTextColor='rgba(255,255,255,0.9)'
                    style={styles.input}
-                   keyboardType='email-address'>
+                   keyboardType='default'
+                   onSubmitEditing={ () => this.password.focus() }
+                   ref={ (input) => this.username = input }>
                </TextInput> 
                <TextInput
-                   onChangeText={(text) => this.username = text}
+                   onChangeText={ (text) => this.username = text }
                    returnKeyType='done'
                    placeholder="Password" 
                    placeholderTextColor='rgba(255,255,255,0.9)'
                    style={styles.input}
-                   keyboardType='email-address'>
+                   keyboardType='default'
+                   ref={ (input) => this.password = input }>
                </TextInput>
                <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall}>
                    <Text style={styles.buttonText}>
