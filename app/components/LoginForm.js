@@ -55,7 +55,7 @@
                     style={styles.input}
                     keyboardType='email-address'>
                 </TextInput>
-                <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall, this.enterCode}>
+                <TouchableOpacity style={styles.buttonContainer} onPress={this.enterCode}>
                     <Text style={styles.buttonText}>
                         Continue
                     </Text>

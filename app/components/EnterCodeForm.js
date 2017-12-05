@@ -49,6 +49,7 @@ export default class SignUpForm extends Component {
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
+                        keyboardType='numeric'
                     >
                     </TextInput>
                     <TextInput
@@ -56,6 +57,7 @@ export default class SignUpForm extends Component {
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
+                        keyboardType='numeric'
                     >
                     </TextInput>
                     <TextInput
@@ -63,6 +65,7 @@ export default class SignUpForm extends Component {
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
+                        keyboardType='numeric'
                     >
                     </TextInput>
                     <TextInput
@@ -70,6 +73,7 @@ export default class SignUpForm extends Component {
                         placeholder="*" 
                         placeholderTextColor='rgba(255,255,255,0.9)'
                         style={styles.input}
+                        keyboardType='numeric'
                     >
                     </TextInput>
                 </View>
