@@ -12,8 +12,21 @@ export default class SignUpForm extends Component {
    }
 
    login(username){
-        console.log(username);
-        Actions.home();
+        //console.log(username);
+    fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
+        .then(response => response.json())
+        .then(responseJson => {
+          if(responseJson.message.length!==0){
+            Actions.home(props={username: username});
+          }else{
+            //do nothing
+          }
+            //console.log(responseJson.message.length) 
+        })
+        .catch(error => {
+          console.error(error);
+        });
+        
    }
 
    signUp(){

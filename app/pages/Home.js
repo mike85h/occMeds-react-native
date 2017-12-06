@@ -1,5 +1,5 @@
 import React,{ Component } from 'react'
-import { TouchableOpacity, View, StyleSheet } from 'react-native'
+import { TouchableOpacity, View, StyleSheet, Text } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 
 export default class Home extends Component{
@@ -13,7 +13,7 @@ export default class Home extends Component{
     }
 
     connectTrial() {
-        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999")
+        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
           .then(response => response.json())
           .then(responseJson => {
             console.log(responseJson) 
@@ -26,8 +26,12 @@ export default class Home extends Component{
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={styles.button} onPress={this.connectTrial}></TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={this.goBack}></TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={this.connectTrial}>
+                    <Text>connectTrial</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={this.goBack}>
+                    <Text>Back</Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -40,7 +44,7 @@ export default class Home extends Component{
         },
         button: {
             height: 50,
-            width: 50,
+            width: 100,
             backgroundColor: '#fff',
             padding: 10,
             margin: 20

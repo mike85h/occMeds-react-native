@@ -34,7 +34,8 @@
                     placeholder="Username" 
                     placeholderTextColor='rgba(255,255,255,0.9)'
                     style={styles.input}
-                    keyboardType='email-address'>
+                    keyboardType='email-address'
+                    autoCapitalize='none'>
                 </TextInput>
                 <TouchableOpacity style={styles.buttonContainer} onPress={this.checkUsername}>
                     <Text style={styles.buttonText}>
