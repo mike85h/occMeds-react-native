@@ -22,9 +22,12 @@ export default class Home extends Component{
         return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
           .then(response => response.json())
           .then(responseJson => {
-            console.log(responseJson)
-            this.setState({isSuccess: true})
-            this.setState({data: "success data"})
+            //console.log(responseJson)
+            //this.setState({isSuccess: true})
+            //this.setState({data: "success data"})
+            if(responseJson){
+                Actions.enterCode()
+            }
           })
           .catch(error => {
             console.error(error);
