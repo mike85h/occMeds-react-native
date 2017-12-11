@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native'
 import Footer from './Footer'
+import signUp from '../functions/signUp'
 
 import { Actions } from 'react-native-router-flux'
 
@@ -12,25 +13,23 @@ export default class SignUpForm extends Component {
    }
 
    login(username){
-        //console.log(username);
-    fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
+      fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
         .then(response => response.json())
         .then(responseJson => {
-          if(responseJson.message.length!==0){
-            Actions.home(props={username: username});
-          }else{
-            //do nothing
-          }
-            //console.log(responseJson.message.length) 
+            if(responseJson.error){
+                //no username found in the db. for now reroutes to login page. needs error messaging.
+                Actions.login()
+            }else{
+                if(responseJson.message.length!==0){
+                    Actions.home(props={username: username});
+                }else{
+                    //do nothing
+                }
+            }
         })
         .catch(error => {
           console.error(error);
-        });
-        
-   }
-
-   signUp(){
-       Actions.signUp();
+        });  
    }
 
    render() {
@@ -85,7 +84,7 @@ export default class SignUpForm extends Component {
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                    <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                   <TouchableOpacity style={styles.touchableSignUp} onPress={this.signUp}>
+                   <TouchableOpacity style={styles.touchableSignUp} onPress={signUp}>
                         <Text style={styles.signUpButton}>Sign Up!</Text>
                    </TouchableOpacity>
                 </View>

@@ -1,6 +1,7 @@
  import React, { Component } from 'react'
  import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native'
  import Footer from './Footer'
+ import signUp from '../functions/signUp'
  
  import { Actions } from 'react-native-router-flux'
 
@@ -8,23 +9,37 @@
  export default class LoginForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: '',
-            passcode: ''
-        };
+        this.checkUsername = this.checkUsername.bind(this)
+        this.state = {};
     }
 
     checkUsername(){
-       const payload = {
-           username: this.username
-       };
-       Actions.enterCode({username: this.username});
+        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.username)
+        .then(response => response.json())
+        .then(responseJson => {
+          if(responseJson){
+            Actions.enterCode({username: this.username});
+          }
+          //Route to access object properties
+          //responseJson.message[0].password
+
+          //Conditional rendering, set state:
+          //this.setState({isSuccess: true})
+          //this.setState({data: "success data"})
+
+          //Conditional Redirect
+          //if(responseJson){
+          //    Actions.enterCode()
+          //}
+        })
+        .catch(error => {
+          console.error(error);
+        });
+       
+       
+    
     };
 
-    signUp(){
-        Actions.signUp();
-    };
-    
     render() {
          return(
              <View style={styles.container}>
@@ -44,7 +59,7 @@
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                     <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                    <TouchableOpacity onPress={this.signUp}> 
+                    <TouchableOpacity onPress={signUp}> 
                         <Text style={styles.signUpButton}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>

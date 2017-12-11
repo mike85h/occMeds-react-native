@@ -2,6 +2,7 @@ import React,{ Component } from 'react'
 import { TouchableOpacity, View, StyleSheet, Text } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import renderIf from '../functions/renderIf'
+import goBack from '../functions/goBack'
 
 export default class Home extends Component{
     constructor(props){
@@ -13,21 +14,23 @@ export default class Home extends Component{
         }
         this.connectTrial = this.connectTrial.bind(this)
     }
-
-    goBack() {
-        Actions.pop()
-    }
-
     connectTrial() {
         return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
           .then(response => response.json())
           .then(responseJson => {
-            //console.log(responseJson)
+            console.log(responseJson)
+            
+            //Route to access object properties
+            //responseJson.message[0].password
+
+            //Conditional rendering, set state:
             //this.setState({isSuccess: true})
             //this.setState({data: "success data"})
-            if(responseJson){
-                Actions.enterCode()
-            }
+
+            //Conditional Redirect
+            //if(responseJson){
+            //    Actions.enterCode()
+            //}
           })
           .catch(error => {
             console.error(error);
@@ -40,7 +43,7 @@ export default class Home extends Component{
                 <TouchableOpacity style={styles.button} onPress={this.connectTrial}>
                     <Text>connectTrial</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={this.goBack}>
+                <TouchableOpacity style={styles.button} onPress={goBack}>
                     <Text>Back</Text>
                 </TouchableOpacity>
                 {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
