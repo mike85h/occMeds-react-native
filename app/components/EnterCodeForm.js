@@ -9,10 +9,13 @@ export default class SignUpForm extends Component {
    
     constructor(props) {
        super(props);
+       this.login = this.login.bind(this)
        this.state = {};
    }
 
    login(username){
+       const code = this.code1 + this.code2 + this.code3 + this.code4
+
       fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
         .then(response => response.json())
         .then(responseJson => {
@@ -21,7 +24,12 @@ export default class SignUpForm extends Component {
                 Actions.login()
             }else{
                 if(responseJson.message.length!==0){
-                    Actions.home(props={username: username});
+                    if(code == 9999) {
+                        Actions.home(props={username: username, code: code});
+                    }else{
+                        Actions.login()
+                    }
+                    
                 }else{
                     //do nothing
                 }
