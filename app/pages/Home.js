@@ -1,11 +1,17 @@
 import React,{ Component } from 'react'
 import { TouchableOpacity, View, StyleSheet, Text } from 'react-native'
 import { Actions } from 'react-native-router-flux'
+import renderIf from '../functions/renderIf'
 
 export default class Home extends Component{
     constructor(props){
         super(props)
-        this.state = {}
+        this.state = {
+            isSuccess: false,
+            data: ''
+        
+        }
+        this.connectTrial = this.connectTrial.bind(this)
     }
 
     goBack() {
@@ -16,7 +22,9 @@ export default class Home extends Component{
         return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
           .then(response => response.json())
           .then(responseJson => {
-            console.log(responseJson) 
+            console.log(responseJson)
+            this.setState({isSuccess: true})
+            this.setState({data: "success data"})
           })
           .catch(error => {
             console.error(error);
@@ -32,6 +40,7 @@ export default class Home extends Component{
                 <TouchableOpacity style={styles.button} onPress={this.goBack}>
                     <Text>Back</Text>
                 </TouchableOpacity>
+                {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
             </View>
         )
     }
