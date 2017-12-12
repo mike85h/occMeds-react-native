@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native'
 import Footer from './Footer'
+import goToLogin from '../functions/goToLogin'
 
 import { Actions } from 'react-native-router-flux'
 
@@ -10,30 +11,16 @@ export default class SignUpForm extends Component {
        this.state = {};
    }
 
-   _loginCall = () => {
+   signUpCall = () => {
        const payload = {
-           username: this.username
+           email: this.email,
+           username: this.username,
+           password: this.password
        };
-       if(payload.username == "Mike") {
-           console.log(payload.username);
-           Alert.alert();
-
-       }else{
-           Alert.alert(
-               "Wrong Username",
-               "What to do?",
-               [
-                   {text: 'continue?', oPress: () => {}}
-               ],
-               { cancelable: true }
-           );
-       }
-
+       console.log(payload)
    } 
 
-   login() {
-       Actions.login();
-   }
+  
    
    render() {
         return(
@@ -58,7 +45,7 @@ export default class SignUpForm extends Component {
                    ref={ (input) => this.username = input }>
                </TextInput> 
                <TextInput
-                   onChangeText={ (text) => this.username = text }
+                   onChangeText={ (text) => this.password = text }
                    returnKeyType='done'
                    placeholder="Password" 
                    placeholderTextColor='rgba(255,255,255,0.9)'
@@ -66,14 +53,14 @@ export default class SignUpForm extends Component {
                    keyboardType='default'
                    ref={ (input) => this.password = input }>
                </TextInput>
-               <TouchableOpacity style={styles.buttonContainer} onPress={this._loginCall}>
+               <TouchableOpacity style={styles.buttonContainer} onPress={this.signUpCall}>
                    <Text style={styles.buttonText}>
                        Sign Up
                    </Text>
                </TouchableOpacity>
                <View style={styles.signUpContainer}>
                    <Text style={styles.signUpText}>Already have an account?</Text>
-                   <TouchableOpacity onPress={this.login}>
+                   <TouchableOpacity onPress={goToLogin}>
                    <Text style={styles.signUpButton}>Sign In</Text>
                    </TouchableOpacity>
                </View>
