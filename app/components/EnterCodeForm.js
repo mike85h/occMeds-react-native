@@ -8,9 +8,9 @@ import { Actions } from 'react-native-router-flux'
 export default class SignUpForm extends Component {
    
     constructor(props) {
-       super(props);
+       super(props)
        this.login = this.login.bind(this)
-       this.state = {};
+       this.state = {}
    }
 
    login(username){
