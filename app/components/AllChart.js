@@ -1,4 +1,5 @@
-import React, { Component }
+import React, { Component } from 'react'
+
 
 class AllChart extends Component{
     constructor(){

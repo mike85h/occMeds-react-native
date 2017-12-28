@@ -7,6 +7,8 @@ import logout from '../functions/logout'
 import Footer from '../components/Footer'
 import Logo from '../components/Logo'
 import Chart from '../components/Chart'
+import AccountSpinner from '../components/AccountSpinner'
+import Header from '../components/Header'
 
 export default class Home extends Component{
     constructor(props){
@@ -20,7 +22,7 @@ export default class Home extends Component{
     }
     
     connectTrial() {
-        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/ahinton")
+        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
           .then(response => response.json())
           .then(responseJson => {
             console.log(responseJson)
@@ -40,28 +42,17 @@ export default class Home extends Component{
           .catch(error => {
             console.error(error);
           });
-
-        console.log(this.props.username)
         }
 
     render() {
         return (
             <View style={styles.container}>
-                <View>
-                    <TouchableOpacity style={styles.button} onPress={this.connectTrial}>
-                        <Text>connectTrial</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={goBack}>
-                        <Text>Back</Text>
-                    </TouchableOpacity>
-                        {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
+                <Header/>
+                {/* <View>
+                    {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
                 </View>
-                <View>
-                    <TouchableOpacity style={styles.buttonRow2} onPress={logout}>
-                        <Text>Logout {this.props.username}</Text>
-                    </TouchableOpacity>
-                </View>
-                <Chart />
+                <Chart /> */}
+                <AccountSpinner />
                 <Footer />
             </View>
         )
@@ -72,21 +63,13 @@ export default class Home extends Component{
         container: {
             backgroundColor: 'rgb(200,200,200)',
             flex: 1,
-            flexDirection: 'row',
+            flexDirection: 'column',
 
-        },
-        button: {
-            height: 30,
-            width: 100,
-            backgroundColor: '#fff',
-            padding: 10,
-            margin: 5
         },
         buttonRow2: {
             height: 20,
             width: 100,
-            backgroundColor: '#fff',
-            margin: 5,
-            marginTop: 55
+            left: 260,
+            backgroundColor: 'rgba(0,0,0,0.0)'
         }
     })

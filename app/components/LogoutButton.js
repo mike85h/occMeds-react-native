@@ -1,0 +1,28 @@
+import React, { Component } from 'react';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import logout from '../functions/logout'
+
+export default class LogoutButton extends Component {
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        return (
+            <TouchableOpacity style={styles.button} onPress={logout}>
+                <Text>Logout</Text>
+            </TouchableOpacity>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    button: {
+        height: 30,
+        width: 80,
+        backgroundColor: 'rgba(0,0,0,0.0)',
+        padding: 15,
+        margin: 10
+    }
+})
