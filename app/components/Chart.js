@@ -19,10 +19,12 @@ export default class Chart extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 50,
-        width: 200,
+        height: 20,
+        width: 120,
+        top: 250,
         flex: 1,
-        paddingTop: 100
+        flexDirection: 'row',
+        left: 130
     }
 })
 

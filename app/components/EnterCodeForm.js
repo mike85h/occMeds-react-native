@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native'
 import Footer from './Footer'
-import signUp from '../functions/signUp'
+import signInPassword from '../functions/signInPassword'
 
 import { Actions } from 'react-native-router-flux'
 
@@ -14,6 +14,7 @@ export default class SignUpForm extends Component {
    }
 
    login(username){
+
        const code = this.code1 + this.code2 + this.code3 + this.code4
 
       fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
@@ -91,9 +92,9 @@ export default class SignUpForm extends Component {
                    </Text>
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
-                   <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                   <TouchableOpacity style={styles.touchableSignUp} onPress={signUp}>
-                        <Text style={styles.signUpButton}>Sign Up!</Text>
+                   <Text style={styles.signUpText}>Forgot your code?</Text>
+                   <TouchableOpacity style={styles.touchableSignUp} onPress={signInPassword}>
+                        <Text style={styles.signUpButton}>Sign In Using Password</Text>
                    </TouchableOpacity>
                 </View>
                 <Footer />

@@ -11,7 +11,7 @@ export default class LogoutButton extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.button} onPress={logout}>
-                <Text>Logout</Text>
+                <Text style={styles.buttonText}>Logout</Text>
             </TouchableOpacity>
         )
     }
@@ -19,10 +19,12 @@ export default class LogoutButton extends Component {
 
 const styles = StyleSheet.create({
     button: {
-        height: 30,
-        width: 80,
+        height: 50,
+        width: 50,
+        marginTop: 15,
         backgroundColor: 'rgba(0,0,0,0.0)',
-        padding: 15,
-        margin: 10
+    },
+    buttonText: {
+        color: 'rgb(255,255,255)'
     }
 })

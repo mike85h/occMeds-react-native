@@ -26,15 +26,19 @@ const styles = StyleSheet.create({
     headerContainer: {
         backgroundColor: 'rgb(100,100,100)',
         position: 'absolute',
-        height: 30,
-        top: 20,
+        height: 70,
         right: 0,
         left: 0,
-        bottom: 20,
-        alignItems: 'center'
+        flex: 1,
+        paddingTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     headerText: {
-        color: '#aaa',
-        alignItems: 'center'
-    }
+        color: 'rgb(255,255,255)',
+        alignItems: 'center',
+        fontSize: 20,
+        top: 15,
+        backgroundColor: 'rgba(255,255,255,0.0)'
+    },
 })

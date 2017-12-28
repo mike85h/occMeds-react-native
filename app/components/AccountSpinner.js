@@ -7,14 +7,16 @@ export default class AccountSpinner extends Component{
         this.state = {accountsAvailable: ['dashboard', 'acct1']}
     }
 
+    // componentWillMount
+
     render() {
         return (
             <Picker
                 style={styles.container}
-                selectedValue={this.state.language}
-                onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                <Picker.Item label='account1' value="acct1" />
-                {/* <Picker.Item label={} value="acct2" onPress={console.log('acct 2 pressed')} /> */}
+                selectedValue={this.state.account}
+                onValueChange={(itemValue, itemIndex) => this.setState({account: itemValue})}>
+                <Picker.Item label='account1' value='acct1' />
+                <Picker.Item label='account2' value='acct2' />
             </Picker>
         )
     }

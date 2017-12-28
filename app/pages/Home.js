@@ -48,10 +48,10 @@ export default class Home extends Component{
         return (
             <View style={styles.container}>
                 <Header/>
-                {/* <View>
+                <View>
                     {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
                 </View>
-                <Chart /> */}
+                <Chart />
                 <AccountSpinner />
                 <Footer />
             </View>

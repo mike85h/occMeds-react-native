@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import EnterCode from './pages/EnterCode'
 import Home from './pages/Home'
+import SignInPassword from './pages/SignInPassword'
 
 export default class Routes extends Component {
     render () {
@@ -15,6 +16,7 @@ export default class Routes extends Component {
                     <Scene key='signUp' component={SignUp} title='Sign Up'/>
                     <Scene key='enterCode' component={EnterCode} title='Enter Code'/>
                     <Scene key='home' component={Home} title='Home'/>
+                    <Scene key='signInPassword' component={SignInPassword} title='Sign In With Password' />
                 </Stack>
             </Router>
         )

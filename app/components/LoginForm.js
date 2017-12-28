@@ -57,12 +57,18 @@
                         Continue
                     </Text>
                 </TouchableOpacity>
+                
+
+                {/*
+                    Below is for Sign Up page routing when needed
                 <View style={styles.signUpContainer}>
                     <Text style={styles.signUpText}>Dont have an account yet?</Text>
                     <TouchableOpacity onPress={signUp}> 
                         <Text style={styles.signUpButton}>Sign Up</Text>
                     </TouchableOpacity>
-                </View>
+                </View> 
+                */}
+                
                 <Footer />
              </View>
          )
