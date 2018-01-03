@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native'
 import Footer from './Footer'
 import signInPassword from '../functions/signInPassword'
+import goBack from '../functions/goBack'
 
 import { Actions } from 'react-native-router-flux'
 
@@ -96,6 +97,11 @@ export default class SignUpForm extends Component {
                    <TouchableOpacity style={styles.touchableSignUp} onPress={signInPassword}>
                         <Text style={styles.signUpButton}>Sign In Using Password</Text>
                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity onPress={goBack}>
+                        <Text>Back</Text>
+                    </TouchableOpacity>
                 </View>
                 <Footer />
             </View>

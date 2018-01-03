@@ -52,7 +52,7 @@ export default class Home extends Component{
                     {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
                 </View>
                 <Chart />
-                <AccountSpinner />
+                <AccountSpinner username={this.props.username} />
                 <Footer />
             </View>
         )

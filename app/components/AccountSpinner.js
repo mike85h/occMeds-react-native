@@ -2,33 +2,57 @@ import React, { Component } from 'react'
 import { Picker, View, Text, StyleSheet } from 'react-native'
 
 export default class AccountSpinner extends Component{
-    constructor(){
-        super()
-        this.state = {accountsAvailable: ['dashboard', 'acct1']}
+    constructor(props){
+        super(props)
+        this.state = {account: 'default'}
     }
 
-    // componentWillMount
+    componentWillMount(){
+        //check for mounting
+        console.log('mounted')
+
+        //fetch user data
+        fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
+        .then(response => response.json())
+        .then(responseJson => {
+            if(responseJson.error){
+               console.log('error')
+            }else{
+                console.log(responseJson)
+            }
+        })
+        .catch(error => {
+          console.error(error);
+        });  
+    }
+
+    pickerChange = (itemValue, itemIndex) => {
+        console.log(this.state.account)
+    }
 
     render() {
         return (
-            <Picker
-                style={styles.container}
-                selectedValue={this.state.account}
-                onValueChange={(itemValue, itemIndex) => this.setState({account: itemValue})}>
-                <Picker.Item label='account1' value='acct1' />
-                <Picker.Item label='account2' value='acct2' />
-            </Picker>
+            <View>
+                <Text>{this.state.account}</Text>
+                <Picker
+                    style={styles.container}
+                    selectedValue={this.state.account}
+                    onValueChange={(itemValue, itemIndex) => this.setState({account: itemValue})}>
+                    <Picker.Item label='account1' value='acct1' />
+                    <Picker.Item label='account2' value='acct2' />
+                </Picker>
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        height: 50,
-        flex: 1,
-        bottom: 20,
-        position: 'absolute',
-        alignSelf: 'stretch'
+        //height: 50,
+        //flex: 1,
+        //bottom: 20,
+        //position: 'absolute',
+        //alignSelf: 'stretch'
     }
 })
 
