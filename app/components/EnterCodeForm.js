@@ -26,12 +26,11 @@ export default class SignUpForm extends Component {
                 Actions.login()
             }else{
                 if(responseJson.message.length!==0){
-                    if(code == 9999) {
+                    if(code == responseJson.message[0].passcode) {
                         Actions.home(props={username: username, code: code});
                     }else{
                         Actions.login()
                     }
-                    
                 }else{
                     //do nothing
                 }
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
        alignItems: 'center',
        flexDirection: 'row',
        bottom: 90,
-       left: 140
+       left: 80
    },
    signUpText: {
        color: '#fff',

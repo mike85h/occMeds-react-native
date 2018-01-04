@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image, KeyboardAvoidingView } from 'react-nativ
 import EnterCodeForm from '../components/EnterCodeForm'
 import Logo from '../components/Logo'
 import renderIf from '../functions/renderIf'
-
+import LoginForm from '../components/LoginForm'
 export default class Login extends Component {
     constructor(props){
         super(props);
@@ -17,7 +17,7 @@ export default class Login extends Component {
                 <Logo />
                 <View style={styles.formContainer}>
                     {renderIf(this.props.username!=undefined, <EnterCodeForm username={this.props.username} />)}
-                    {renderIf(this.props.username==undefined, <Text>Fail</Text>)}
+                    {renderIf(this.props.username==undefined, <LoginForm />)}
                 </View>
             </KeyboardAvoidingView>
         );

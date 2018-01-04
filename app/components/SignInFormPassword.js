@@ -9,42 +9,29 @@ import { Actions } from 'react-native-router-flux'
 export default class LoginForm extends Component {
    constructor(props) {
        super(props);
-       this.checkUsername = this.checkPassword.bind(this)
+       this.login = this.login.bind(this)
        this.state = {};
    }
 
-   checkPassword(){
+   login(username){
+       const password = this.password
        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.username)
        .then(response => response.json())
        .then(responseJson => {
-         if(responseJson){
-           Actions.enterCode({username: this.username});
+         if(this.password === responseJson.message[0].password){
+           Actions.enterCode({username: this.username, password: responseJson.message[0].password, code: responseJson.message[0].passcode});
          }
-         //Route to access object properties
-         //responseJson.message[0].password
-
-         //Conditional rendering, set state:
-         //this.setState({isSuccess: true})
-         //this.setState({data: "success data"})
-
-         //Conditional Redirect
-         //if(responseJson){
-         //    Actions.enterCode()
-         //}
        })
        .catch(error => {
          console.error(error);
-       });
-      
-      
-   
-  };
+       })
+  }
 
    render() {
         return(
             <View style={styles.container}>
                <TextInput
-                   onChangeText={(text) => this.username = text}
+                   onChangeText={(text) => this.password = text}
                    returnKeyType='done'
                    placeholder="Password" 
                    placeholderTextColor='rgba(255,255,255,0.9)'
@@ -52,7 +39,7 @@ export default class LoginForm extends Component {
                    keyboardType='default'
                    autoCapitalize='none'>
                </TextInput>
-               <TouchableOpacity style={styles.buttonContainer} onPress={this.checkPassword}>
+               <TouchableOpacity style={styles.buttonContainer} onPress={() => {this.login(this.props.username)}} >
                    <Text style={styles.buttonText}>
                        Continue
                    </Text>
@@ -102,7 +89,7 @@ const styles = StyleSheet.create({
        alignItems: 'center',
        flexDirection: 'row',
        bottom: 90,
-       left: 140
+       left: 125
    },
    signUpText: {
        color: '#fff',
