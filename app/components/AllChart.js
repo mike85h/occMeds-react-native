@@ -1,31 +1,31 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 
 
-class AllChart extends Component{
-    constructor(){
-        super()
-        this.state = {
-            clicked: false,
-            style: {
-                data: {fill: 'tomato'}
-            }
-        }
-    }
+// export default class AllChart extends Component{
+//     constructor(){
+//         super()
+//         this.state = {
+//             clicked: false,
+//             style: {
+//                 data: {fill: 'tomato'}
+//             }
+//         }
+//     }
 
-    render() {
-        const handleMouseOver = () => {
-            const fillColor = this.state.clicked ? 'blue' : 'tomato'
-            const clicked = !this.state.clicked
-            this.setState({
-                clicked,
-                style: {
-                    data: { fill: fillColor }
-                }
-            })
-        }
+//     render() {
+//         const handleMouseOver = () => {
+//             const fillColor = this.state.clicked ? 'blue' : 'tomato'
+//             const clicked = !this.state.clicked
+//             this.setState({
+//                 clicked,
+//                 style: {
+//                     data: { fill: fillColor }
+//                 }
+//             })
+//         }
         
-        return (
+//         return (
             
-        )
-    }
-}
+//         )
+//     }
+// }

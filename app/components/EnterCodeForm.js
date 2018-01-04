@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native'
 import Footer from './Footer'
-import signInPassword from '../functions/signInPassword'
+import goToSignInPassword from '../functions/goToSignInPassword'
 import goBack from '../functions/goBack'
 
 import { Actions } from 'react-native-router-flux'
 
-export default class SignUpForm extends Component {
+export default class EnterCodeForm extends Component {
    
     constructor(props) {
        super(props)
        this.login = this.login.bind(this)
+       this.passwordInstead = this.passwordInstead.bind(this)
        this.state = {}
    }
 
@@ -39,6 +40,10 @@ export default class SignUpForm extends Component {
         .catch(error => {
           console.error(error);
         });  
+   }
+
+   passwordInstead = () => {
+       goToSignInPassword(this.props)
    }
 
    render() {
@@ -93,7 +98,7 @@ export default class SignUpForm extends Component {
                 </TouchableOpacity>
                 <View style={styles.signUpContainer}>
                    <Text style={styles.signUpText}>Forgot your code?</Text>
-                   <TouchableOpacity style={styles.touchableSignUp} onPress={signInPassword}>
+                   <TouchableOpacity style={styles.touchableSignUp} onPress={() => {this.passwordInstead()}}>
                         <Text style={styles.signUpButton}>Sign In Using Password</Text>
                    </TouchableOpacity>
                 </View>

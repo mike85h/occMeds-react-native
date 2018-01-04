@@ -15,7 +15,7 @@ export default class SignInPassword extends Component {
             <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>
                 <Logo />
                 <View style={styles.formContainer}>
-                    <SignInFormPassword />
+                    <SignInFormPassword username={this.props.username}/>
                 </View>
             </KeyboardAvoidingView>
         );

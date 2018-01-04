@@ -6,7 +6,7 @@ import goToEnterCode from '../functions/goToEnterCode'
 import { Actions } from 'react-native-router-flux'
 
 
-export default class LoginForm extends Component {
+export default class SignInFormPassword extends Component {
    constructor(props) {
        super(props);
        this.login = this.login.bind(this)
@@ -15,12 +15,15 @@ export default class LoginForm extends Component {
 
    login(username){
        const password = this.password
-       return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.username)
+       return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
        .then(response => response.json())
        .then(responseJson => {
-         if(this.password === responseJson.message[0].password){
-           Actions.enterCode({username: this.username, password: responseJson.message[0].password, code: responseJson.message[0].passcode});
-         }
+           if(responseJson.message[0].password === password){
+                Actions.home({username: this.props.username, password: password})
+           }
+           else{
+               Actions.login()
+           }
        })
        .catch(error => {
          console.error(error);

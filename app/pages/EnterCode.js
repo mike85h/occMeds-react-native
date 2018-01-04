@@ -5,7 +5,8 @@ import EnterCodeForm from '../components/EnterCodeForm'
 import Logo from '../components/Logo'
 import renderIf from '../functions/renderIf'
 import LoginForm from '../components/LoginForm'
-export default class Login extends Component {
+
+export default class EnterCode extends Component {
     constructor(props){
         super(props);
         this.state = {};
