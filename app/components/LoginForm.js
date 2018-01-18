@@ -1,7 +1,7 @@
  import React, { Component } from 'react'
  import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native'
  import Footer from './Footer'
- import signUp from '../functions/signUp'
+ import signIn from '../functions/signIn'
  
  import { Actions } from 'react-native-router-flux'
 
@@ -19,25 +19,13 @@
         .then(responseJson => {
           if(responseJson){
             Actions.enterCode({username: this.username});
+          }else{
+            //error for username not found
           }
-          //Route to access object properties
-          //responseJson.message[0].password
-
-          //Conditional rendering, set state:
-          //this.setState({isSuccess: true})
-          //this.setState({data: "success data"})
-
-          //Conditional Redirect
-          //if(responseJson){
-          //    Actions.enterCode()
-          //}
         })
         .catch(error => {
           console.error(error);
-        });
-       
-       
-    
+        }); 
     };
 
     render() {
@@ -57,18 +45,6 @@
                         Continue
                     </Text>
                 </TouchableOpacity>
-                
-
-                {/*
-                    Below is for Sign Up page routing when needed
-                <View style={styles.signUpContainer}>
-                    <Text style={styles.signUpText}>Dont have an account yet?</Text>
-                    <TouchableOpacity onPress={signUp}> 
-                        <Text style={styles.signUpButton}>Sign Up</Text>
-                    </TouchableOpacity>
-                </View> 
-                */}
-                
                 <Footer />
              </View>
          )

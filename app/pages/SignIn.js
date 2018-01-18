@@ -1,10 +1,10 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, KeyboardAvoidingView } from 'react-native';
-import SignUpForm from '../components/SignUpForm';
+import SignInForm from '../components/SignInForm';
 import Logo from '../components/Logo';
 
-export default class SignUp extends Component {
+export default class SignIn extends Component {
     constructor(props){
         super(props);
         this.state = {};
@@ -15,7 +15,7 @@ export default class SignUp extends Component {
             <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>
                 <Logo />
                 <View style={styles.formContainer}>
-                    <SignUpForm />
+                    <SignInForm />
                 </View>
             </KeyboardAvoidingView>
         );

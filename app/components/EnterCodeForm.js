@@ -16,35 +16,46 @@ export default class EnterCodeForm extends Component {
    }
 
    login(username){
-
-       const code = this.code1 + this.code2 + this.code3 + this.code4
-
-      fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
-        .then(response => response.json())
-        .then(responseJson => {
-            if(responseJson.error){
-                //no username found in the db. for now reroutes to login page. needs error messaging.
-                Actions.login()
-            }else{
-                if(responseJson.message.length!==0){
-                    if(code == responseJson.message[0].passcode) {
-                        Actions.home(props={username: username, code: code});
-                    }else{
-                        Actions.login()
-                    }
+       
+        // assemble passcode
+        const code = this.code1 + this.code2 + this.code3 + this.code4
+        //validate entered data against db
+        fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
+            .then(response => response.json())
+            .then(responseJson => {
+                if(responseJson.error){
+                    //no username found in the db. for now reroutes to login page. needs error messaging.
+                    Actions.login()
                 }else{
-                    //do nothing
+                    if(responseJson.message.length!==0){
+                        if(code == responseJson.message[0].passcode) {
+                            let email = responseJson.message[0].user_email
+                            let fname = responseJson.message[0].user_fname
+                            let lname = responseJson.message[0].user_lname
+                            Actions.home({
+                                username: this.props.username, 
+                                code: code, 
+                                fname: fname, 
+                                lname: lname, 
+                                email: email
+                            });
+                        }else{
+                            Actions.login()
+                        }
+                    }else{
+                        //do nothing
+                    }
                 }
-            }
-        })
-        .catch(error => {
-          console.error(error);
-        });  
-   }
+            })
+            .catch(error => {
+                console.error(error);
+            });  
+    }
 
-   passwordInstead = () => {
-       goToSignInPassword(this.props)
-   }
+    //function redirects user to sign in with password instead of code
+    passwordInstead = () => {
+        goToSignInPassword(this.props)
+    }
 
    render() {
         return(
@@ -101,11 +112,6 @@ export default class EnterCodeForm extends Component {
                    <TouchableOpacity style={styles.touchableSignUp} onPress={() => {this.passwordInstead()}}>
                         <Text style={styles.signUpButton}>Sign In Using Password</Text>
                    </TouchableOpacity>
-                </View>
-                <View>
-                    <TouchableOpacity onPress={goBack}>
-                        <Text>Back</Text>
-                    </TouchableOpacity>
                 </View>
                 <Footer />
             </View>

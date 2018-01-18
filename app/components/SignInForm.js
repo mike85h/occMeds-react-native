@@ -5,22 +5,11 @@ import goToLogin from '../functions/goToLogin'
 
 import { Actions } from 'react-native-router-flux'
 
-export default class SignUpForm extends Component {
+export default class SignInForm extends Component {
    constructor(props) {
        super(props);
        this.state = {};
    }
-
-   signUpCall = () => {
-       const payload = {
-           email: this.email,
-           username: this.username,
-           password: this.password
-       };
-       console.log(payload)
-   } 
-
-  
    
    render() {
         return(

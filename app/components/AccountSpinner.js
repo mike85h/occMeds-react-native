@@ -8,17 +8,14 @@ export default class AccountSpinner extends Component{
     }
 
     componentWillMount(){
-        //check for mounting
-        console.log('mounted')
-
         //fetch user data
         fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
         .then(response => response.json())
         .then(responseJson => {
             if(responseJson.error){
-               console.log('error')
+               console.log('spinner error')
             }else{
-                console.log(responseJson)
+                console.log('spinner fetch success')
             }
         })
         .catch(error => {

@@ -9,6 +9,7 @@ import Logo from '../components/Logo'
 import Chart from '../components/Chart'
 import AccountSpinner from '../components/AccountSpinner'
 import Header from '../components/Header'
+import goToMyProfile from '../functions/goToMyProfile'
 
 export default class Home extends Component{
     constructor(props){
@@ -16,33 +17,14 @@ export default class Home extends Component{
         this.state = {
             isSuccess: false,
             data: ''
-        
         }
-        this.connectTrial = this.connectTrial.bind(this)
+        this.myProfile = this.myProfile.bind(this)
     }
-    
-    connectTrial() {
-        return fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
-          .then(response => response.json())
-          .then(responseJson => {
-            console.log(responseJson)
-            
-            //Route to access object properties
-            //responseJson.message[0].password
 
-            //Conditional rendering, set state:
-            this.setState({isSuccess: true})
-            this.setState({data: "success data"})
-
-            //Conditional Redirect
-            //if(responseJson){
-            //    Actions.enterCode()
-            //}
-          })
-          .catch(error => {
-            console.error(error);
-          });
-        }
+    myProfile(props) {
+        console.log(this.props)
+        Actions.myProfile(this.props)
+    }
 
     render() {
         return (
@@ -52,7 +34,8 @@ export default class Home extends Component{
                     {renderIf(this.state.isSuccess, <Text>{this.state.data}</Text>)}
                 </View>
                 <Chart />
-                <AccountSpinner username={this.props.username} />
+                <TouchableOpacity style={styles.myProfile} onPress={() => {this.myProfile(this.props)}}><Text>My Profile</Text></TouchableOpacity>
+                <AccountSpinner username={this.props.username} code={this.props.code} />
                 <Footer />
             </View>
         )
@@ -70,6 +53,12 @@ export default class Home extends Component{
             height: 20,
             width: 100,
             left: 260,
+            backgroundColor: 'rgba(0,0,0,0.0)'
+        },
+        myProfile: {
+            flex: 1,
+            height: 40,
+            width: 90,
             backgroundColor: 'rgba(0,0,0,0.0)'
         }
     })

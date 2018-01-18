@@ -5,6 +5,7 @@ import EnterCodeForm from '../components/EnterCodeForm'
 import Logo from '../components/Logo'
 import renderIf from '../functions/renderIf'
 import LoginForm from '../components/LoginForm'
+import BackButton from '../components/BackButton'
 
 export default class EnterCode extends Component {
     constructor(props){
@@ -15,6 +16,7 @@ export default class EnterCode extends Component {
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>
+                <BackButton style={styles.backButton}/>
                 <Logo />
                 <View style={styles.formContainer}>
                     {renderIf(this.props.username!=undefined, <EnterCodeForm username={this.props.username} />)}
@@ -31,6 +33,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(100,100,100)'
     },
     formContainer: {
+
+    },
+    backButton: {
+        marginTop: 350,
 
     }
 });
