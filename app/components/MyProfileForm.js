@@ -25,11 +25,36 @@ export default class MyProfileForm extends Component {
             <View style={styles.container}>
                 <Header />
                     <View style={styles.profileForm}>
-                       <Text>{this.props.props.email}</Text>
-                       <Text>{this.props.props.code}</Text>
-                       <Text>{this.props.props.lname}</Text>
-                       <Text>{this.props.props.fname}</Text>
-                       <Text>{this.props.props.username}</Text>
+                        <Text>{this.props.props.email}</Text>
+                        <TouchableOpacity>
+                           <Text>
+                               Edit Email
+                           </Text>
+                        </TouchableOpacity>
+                        <Text>{this.props.props.code}</Text>
+                        <TouchableOpacity>
+                            <Text>
+                                Edit Code
+                            </Text>
+                        </TouchableOpacity>
+                        <Text>{this.props.props.lname}</Text>
+                        <TouchableOpacity>
+                            <Text>
+                                Edit Last Name
+                            </Text>
+                        </TouchableOpacity>
+                        <Text>{this.props.props.fname}</Text>
+                        <TouchableOpacity>
+                            <Text>
+                                Edit First Name
+                            </Text>
+                        </TouchableOpacity>
+                        <Text>{this.props.props.username}</Text>
+                        <TouchableOpacity>
+                            <Text>
+                                Edit Username
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                 <Footer />
             </View>
