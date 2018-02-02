@@ -17,6 +17,7 @@ export default class MyProfileForm extends Component {
 
    logProps() {
        console.log(this.props)
+       console.log(this.state)
        //console.log(this.state)
    }
 
@@ -26,30 +27,35 @@ export default class MyProfileForm extends Component {
                 <Header />
                     <View style={styles.profileForm}>
                         <Text>{this.props.props.email}</Text>
+                        <TextInput></TextInput>
                         <TouchableOpacity>
                            <Text>
                                Edit Email
                            </Text>
                         </TouchableOpacity>
                         <Text>{this.props.props.code}</Text>
+                        <TextInput></TextInput>
                         <TouchableOpacity>
                             <Text>
                                 Edit Code
                             </Text>
                         </TouchableOpacity>
                         <Text>{this.props.props.lname}</Text>
+                        <TextInput></TextInput>
                         <TouchableOpacity>
                             <Text>
                                 Edit Last Name
                             </Text>
                         </TouchableOpacity>
                         <Text>{this.props.props.fname}</Text>
+                        <TextInput></TextInput>
                         <TouchableOpacity>
                             <Text>
                                 Edit First Name
                             </Text>
                         </TouchableOpacity>
                         <Text>{this.props.props.username}</Text>
+                        <TextInput></TextInput>
                         <TouchableOpacity>
                             <Text>
                                 Edit Username
