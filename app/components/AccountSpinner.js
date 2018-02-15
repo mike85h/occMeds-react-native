@@ -12,11 +12,11 @@ export default class AccountSpinner extends Component{
         fetch("http://www.orthofitters.xyz/helloworld/app.js/users999/" + this.props.username)
         .then(response => response.json())
         .then(responseJson => {
-            if(responseJson.error){
-               console.log('spinner error')
-            }else{
-                console.log('spinner fetch success')
-            }
+            // if(responseJson.error){
+            //    console.log('spinner error')
+            // }else{
+            //     console.log('spinner fetch success')
+            // }
         })
         .catch(error => {
           console.error(error);
@@ -24,7 +24,7 @@ export default class AccountSpinner extends Component{
     }
 
     pickerChange = (itemValue, itemIndex) => {
-        console.log(this.state.account)
+        // console.log(this.state.account)
     }
 
     render() {

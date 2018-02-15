@@ -17,12 +17,13 @@ export default class MyProfileForm extends Component {
            lName: this.props.props.lname,
            username: this.props.props.username
        };
-       this.logProps = this.logProps.bind(this)
+       this.submitChange = this.submitChange.bind(this)
     }
 
 
-   logProps() {
-      
+   submitChange = (field) => {
+      console.log(field)
+      console.log(this.state.fName)
    }
 
    render() {
@@ -38,9 +39,10 @@ export default class MyProfileForm extends Component {
                               returnKeyLabel = {'Done'}
                               onChangeText = {(text)=> this.setState({email: text})}/>
                             <TouchableOpacity 
-                              style={styles.saveButton}>
+                              style={styles.saveButton} 
+                              onPress={() => {this.submitChange('email')}}>
                                 <Text>
-                                    Save Email
+                                    Save New Email
                                 </Text>
                             </TouchableOpacity>
                         </View>
@@ -51,9 +53,11 @@ export default class MyProfileForm extends Component {
                               placeholder='enter new code'
                               returnKeyLabel = {'Done'}
                               onChangeText = {(text)=> this.setState({code: text})}/>
-                            <TouchableOpacity style={styles.saveButton}>
+                            <TouchableOpacity 
+                              style={styles.saveButton} 
+                              onPress={() => {this.submitChange('code')}}>
                                 <Text>
-                                    Save Code
+                                    Save New Access Code
                                 </Text>
                             </TouchableOpacity>
                         </View>
@@ -64,9 +68,11 @@ export default class MyProfileForm extends Component {
                               placeholder='enter new last name'
                               returnKeyLabel = {'Done'}
                               onChangeText = {(text)=> this.setState({lName: text})}/>
-                            <TouchableOpacity style={styles.saveButton}>
+                            <TouchableOpacity 
+                              style={styles.saveButton} 
+                              onPress={() => {this.submitChange('lname')}}>
                                 <Text>
-                                    Save Last Name
+                                    Save New Last Name
                                 </Text>
                             </TouchableOpacity>
                         </View>
@@ -77,9 +83,11 @@ export default class MyProfileForm extends Component {
                               placeholder='enter new first name'
                               returnKeyLabel = {'Done'}
                               onChangeText = {(text)=> this.setState({fName: text})}/>
-                            <TouchableOpacity style={styles.saveButton}>
+                            <TouchableOpacity 
+                              style={styles.saveButton} 
+                              onPress={() => {this.submitChange('fname')}}>
                                 <Text>
-                                    Save First Name
+                                    Save New First Name
                                 </Text>
                             </TouchableOpacity>
                         </View>
@@ -90,9 +98,11 @@ export default class MyProfileForm extends Component {
                               placeholder='enter new username'
                               returnKeyLabel = {'Done'}
                               onChangeText = {(text)=> this.setState({username: text})}/>
-                            <TouchableOpacity style={styles.saveButton}>
+                            <TouchableOpacity 
+                              style={styles.saveButton} 
+                              onPress={() => {this.submitChange('username')}}>
                                 <Text>
-                                    Save Username
+                                    Save New Username
                                 </Text>
                             </TouchableOpacity>
                         </View>
