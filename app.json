@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "22.0.0"
+    "sdkVersion": "22.0.0",
+    "name":"OccMeds",
+    "icon": "./assets/om_icon_white.png",
+    "version": "1.0.0",
+    "slug": "occmeds",
+    "ios": {
+      "bundleIdentifier": "com.stmarysnds.occmeds"
+    },
+    "android": {
+      "package": "com.stmarysnds.occmeds"
+    }
   }
 }
