@@ -24,6 +24,8 @@ export default class MyProfileForm extends Component {
    submitChange = (field) => {
       console.log(field)
       console.log(this.state.fName)
+
+      //setup post request for patient info to persist to DB
    }
 
    render() {

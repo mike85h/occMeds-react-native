@@ -1,5 +1,14 @@
  import React, { Component } from 'react'
- import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert } from 'react-native'
+ import { 
+    StyleSheet, 
+    View, 
+    TextInput, 
+    Text, 
+    TouchableOpacity, 
+    StatusBar, 
+    Alert,
+    AsyncStorage
+ } from 'react-native'
  import Footer from './Footer'
  import signIn from '../functions/signIn'
  
@@ -19,6 +28,7 @@
         .then(responseJson => {
           if(responseJson){
             Actions.enterCode({username: this.username});
+            AsyncStorage.setItem('storedUsername', JSON.stringify({'storedUsername':this.username}))
           }else{
             //error for username not found
           }

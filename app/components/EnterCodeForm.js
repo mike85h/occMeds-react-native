@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, StatusBar, Alert, Keyboard } from 'react-native'
+import { 
+    StyleSheet, 
+    View, 
+    TextInput, 
+    Text, 
+    TouchableOpacity, 
+    StatusBar, 
+    Alert, 
+    Keyboard 
+} from 'react-native'
 import Footer from './Footer'
 import goToSignInPassword from '../functions/goToSignInPassword'
 import goBack from '../functions/goBack'
