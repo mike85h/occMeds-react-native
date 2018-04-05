@@ -14,12 +14,13 @@ import renderIf from '../functions/renderIf'
 import goToEnterCode from '../functions/goToEnterCode';
 import EnterCodeForm from '../components/EnterCodeForm';
 
-export default class Login extends Component {
+export default class EntryPoint extends Component {
     constructor(props){
         super(props);
         this.state = {
             'isLoading':true,
-            'username': ''
+            'username': '',
+            'pageToShow': ''
     };
     }
 

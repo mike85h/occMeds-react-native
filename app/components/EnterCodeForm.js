@@ -7,7 +7,8 @@ import {
     TouchableOpacity, 
     StatusBar, 
     Alert, 
-    Keyboard 
+    Keyboard,
+    AsyncStorage 
 } from 'react-native'
 import Footer from './Footer'
 import goToSignInPassword from '../functions/goToSignInPassword'
@@ -25,7 +26,6 @@ export default class EnterCodeForm extends Component {
    }
 
    login(username){
-       
         // assemble passcode
         const code = this.code1 + this.code2 + this.code3 + this.code4
         //validate entered data against db
